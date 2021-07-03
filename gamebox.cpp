@@ -3,13 +3,201 @@
 #include <cstdlib>
 #include <ctime>
 #include <string>
+#include <string.h>
 #include <iomanip>
+#include <fstream>
+#include <conio.h>
 
 using namespace std;
 
+void det() {
+
+cout<<"*****************Detective game*****************\n";
+cout <<"In this game, you need to carefully read and look for evidences.\n"<<endl;
+cout <<"Unlike other games, this one is not so complex but here you need to use your brain and find the criminal.\n"<<endl;
+cout <<"After every line you need to press any key to continue.\n"<<endl;
+cout <<"All the best!.\n\n"<<endl;
+cout<<"[Detective arrives at the scene] \n \n";
+cout <<"Brother:- Hello, My name is John, "<<endl;
+getch();
+cout <<"I called you here, "<<endl;
+getch();
+cout <<"I am his younger brother \n";
+getch();
+cout<<"[To another man present at the scene] \n";
+getch();
+cout<<"Detective:-and you are? \n";
+getch();
+cout<<"Friend:-My name is Steve, and I am a ... I  was a friend of him \n";
+getch();
+cout <<"[To wife] \n";
+getch();
+cout<<"Detective;- I am sorry for your loss \n";
+getch();
+cout<<"[To everyone]\n";
+getch();
+cout<<"Detective:-Now I want all of you to take a seat nearby while we carry out the investigation and I might need \n you all to answer some questions so please try to cooperate, don't panic, and I promise,\n whoever committed this terrible crime will be punished\n \n \n";
+getch();
+cout<<"[To brother]\n";
+getch();
+cout<<"Detective:-I want you to tell me about everything you know, anything related to the crime or anything I should know";
+getch();
+cout<<"Detective:- Let's start with your relationship with your brother\n";
+getch();
+cout<<"John:-Ah well.. to start with, I was five when I first met him and even though we were step-brothers,\n he loved me like his own, our father was abusive so he was the only real family I ever had,\n we used to go to school together, share food, well.. that's about it and as for him, he was a very respected man, \neveryone loved him People could be jealous of him but enemies, no I don't think he had any";
+getch();
+cout<<"Detective:-Yes that's enough, I see you two had a great relationship \n \n";
+getch();
+cout<<"[To friend]\n";
+getch();
+cout<<"Detective:-You were his friend right \n";
+getch();
+cout<<"Steve:-Yes sir \n";
+getch();
+cout<<"Detective:-See, I want you to answer these questions honestly, think hard, take your time and then answer \n";
+getch();
+cout<<"Steve:-Yes of course sir \n";
+getch();
+cout<<"Detective:-Tell me when and how did your friendship begin \n ";
+getch();
+cout<<"Steve:-College days, He was in the same batch as me, Both of us shared a great interest in football and \nthat's how i got to know him, In my current job we were working together on a project \n";
+getch();
+cout<<"Detective:-How was his behaviour recently,did you notice anything different \n";
+getch();
+cout<<"Steve:-Nothing different sir, He was just as lively as he used to be during college days \n";
+getch();
+cout<<"Detective:-Any unwanted attention he was getting \n";
+getch();
+cout<<"Steve:-He excelled at everything he did so he used to attract a lot of negative people every \n now and then but it was nothing new or serious\n \n \n" ;
+getch();
+cout<<"[To wife]\n";
+cout<<"Detective:-Are you feeling better \n";
+getch();
+cout<<"Wife:-Oh oh.. yes i am \n";
+getch();
+cout<<"Detective:-I have some questions i want to ask you \n";
+getch();
+cout<<"Wife:-Yes please go ahead \n";
+getch();
+cout<<"Detective:-How was his behaviour recently \n" ;
+getch();
+cout<<"Wife:-He was a little tensed about work \n";
+getch();
+cout<<"Detective:-tensed?? \n";
+getch();
+cout<<"Wife:-He was working for longer hours for the past month and mentioned about some work trip \n";
+getch();
+cout<<"Detective:-Can you tell me more about this trip \n";
+getch();
+cout<<"Wife:-I'm sorry i don't know much about it either \n";
+getch();
+cout<<"Detective:-OK that's all i wanted to know \n \n \n";
+getch();
+cout<<"[To everyone]\n";
+getch();
+cout<<"Detective:-Thank you all for your cooperation \n";
+getch();
+cout<<"all of you can rest at the hotel we've booked for you \n";
+getch();
+cout<<"We will call you again \n \n \n";
+getch();
+
+cout<<"[Enters the crime scene]\n";
+getch();
+cout<<"Detective:-Ah shit, Here we go again \n";
+getch();
+
+cout<<"\n\n\n" ;
+cout<<"What do you think? Who is the real culprit?\n";
+cout<<"(1) 1 --> Boss\n"
+    <<"(2) 2 --> Wife\n"
+    <<"(3) 3 --> Friend\n"
+    <<"(4) 4 --> Brother\n" ;
+    int result;
+    cout<<"Choose a number : ";
+    cin>>result ;
+    switch(result){
+        case 1 : cout<<"You lost.\nGame over....";
+        break ;
+        case 2 : cout<<"You lost.\nGame over....";
+        break ;
+        case 3 : cout<<"You won. Congratulations DETECTIVE...!!!\n\nGame over." ;
+        break ;
+        case 4 : cout<<"You lost.\nGame over....";
+        break ;
+    }
+}
+
+
+class userdetails
+{
+    char name[40];
+    int credits;
+public:
+    userdetails()
+    {
+        credits = 100;
+    }
+    void getname()
+    {
+        cout<<"Enter Name: ";
+        cin.getline(name,40);
+    }
+    void disp()
+    {
+        cout<<"Name: "<<name<<endl;
+        cout<<"Credits: "<<credits<<endl;
+    }
+    void add_credits(int n,char* str);
+    void r_credits(int n,char* str);
+    char* rname(){return name;}
+    int rc(){return credits;}
+}u;
+void userdetails::add_credits(int n,char* str)
+    {
+        int pos = 0;
+        fstream fs;
+        fs.open("user.dat",ios::in|ios::binary|ios::out);
+        while(!fs.eof())
+        {
+            pos = fs.tellg();
+            fs.read((char*)&u,sizeof(u));
+            if(fs)
+            {
+                if(strcmp(u.rname(),str)==0)
+                {
+                    credits += n;
+                    fs.seekp(pos);
+                    fs.write((char*)&u,sizeof(u));
+                    break;
+                }
+            }
+        }
+    }
+    void userdetails::r_credits(int n,char* str)
+    {
+        int pos = 0;
+        fstream fs;
+        fs.open("user.dat",ios::in|ios::binary|ios::out);
+        while(!fs.eof())
+        {
+            pos = fs.tellg();
+            fs.read((char*)&u,sizeof(u));
+            if(fs)
+            {
+                if(strcmp(u.rname(),str)==0)
+                {
+                    credits -= n;
+                    fs.seekp(pos);
+                    fs.write((char*)&u,sizeof(u));
+                    break;
+                }
+            }
+        }
+    }
 const int MAX_TRIES=5;
 int letterFill (char, string, string&);
-void hang_man(){                                //hangman_game
+void hang_man(char* p){                                //hangman_game
     string name;
 	char letter;
 	int num_of_wrong_guesses=0;
@@ -23,11 +211,7 @@ void hang_man(){                                //hangman_game
 	cout << "\nEach letter is represented by a star.";
 	cout << "\nYou have to type only one letter in one try";
 	cout << "\nYou have " << MAX_TRIES << " tries to try and guess the word.";
-	/*
-
-	credit system -- from total credit
-
-	*/
+    u.r_credits(2,p);
 	while (num_of_wrong_guesses < MAX_TRIES){
 		cout << "\n\n" << unknown;
 		cout << "\n\nGuess a letter: ";
@@ -44,22 +228,14 @@ void hang_man(){                                //hangman_game
 		if (word==unknown){
 			cout << word << endl;
 			cout << "Yeah! You got it!";
-			/*
-
-			credit system ++
-
-			*/
+			u.add_credits(2,p);
 			break;
 		}
 	}
 	if(num_of_wrong_guesses == MAX_TRIES){
 		cout << "\nSorry, you lose...you've been hanged." << endl;
 		cout << "The word was : " << word << endl;
-		/*
-
-		credit system --
-
-		*/
+		u.r_credits(2,p);
 	}
 	cin.ignore();
 	cin.get();
@@ -94,7 +270,7 @@ void print_cards(char *message, char *cards, int user_pick){            //this f
     }
 }
 
-int find_the_ace(){                                 //find the ace game(main)
+int find_the_ace(char *p){                                 //find the ace game(main)
     int i, ace, total_wager;
     int invalid_choice, pick= -1, wager_one=-1, wager_two=-1;
     char choice_two, cards[3]= {'X','X','X'};
@@ -155,15 +331,11 @@ int find_the_ace(){                                 //find the ace game(main)
         if(pick == ace){
             cout<<"You WON!";
             invalid_choice=0;
-            //credit gain ++
+            u.add_credits(5,p);
         }
         else{
             cout<<"Better luck next time";
-            /*
-
-            credit --
-
-            */
+            u.r_credits(10,p);
         }
     }
 }
@@ -580,7 +752,7 @@ bool lotto :: checkDuplicates (int userticket[], int ticket, int i)
 
 int main (int argc, char **argv)
 {
-    string playerName;
+    char playerName[40];
     int amount; // hold player's balance amount
     int bettingAmount;
     int guess;
@@ -591,6 +763,9 @@ int main (int argc, char **argv)
     int a = 0;
     char x;
     int g = 0;
+    ofstream f("user.dat",ios::app|ios::binary);
+    ifstream f1("user.dat",ios::in|ios::binary);
+    bool flag = false;
 
     srand(time(0)); // "Seed" the random generator
     cout << "\n\n\n";
@@ -605,9 +780,24 @@ int main (int argc, char **argv)
     drawLine(180, '-');
     drawLine(180, '#');
     cout << "\n\n\nEnter Your Name : ";
-    getline(cin, playerName);
-
+    cin.getline(playerName,40);
+    while(f1.read((char*)&u,sizeof(u)))
+    {
+        if(strcmp(u.rname(),playerName)==0)
+        {
+            flag = true;
+            break;
+        }
+    }
+    if(flag==false)
+    {
+        cout<<"Create New User!"<<endl;
+        u.getname();
+        f.write((char*)&u,sizeof(u));
+    }
+    else{
         system("cls");
+        u.disp();
         cout<<"\nYou are ready to play!!";
         Numberguess c;
         lotto l;
@@ -617,6 +807,7 @@ int main (int argc, char **argv)
         cout << "\n3. Find the Ace";
         cout << "\n4. Hang Man";
         cout << "\n5. Tic Tac Toe";
+        cout << "\n6. Detective Game";
         cout << "\n6. Quit";
         cout << "\n\nEnter your choice : ";
         cin >> a;
@@ -658,20 +849,26 @@ int main (int argc, char **argv)
         }
         else if (a == 3){
             system("cls");
-            find_the_ace();
+            find_the_ace(playerName);
         }
         else if (a == 4){
             system("cls");
-            hang_man();
+            hang_man(playerName);
         }
         else if (a == 5){
             system("cls");
             tic_tac_toe();
         }
+        else if (a == 6){
+            system("cls");
+            det();
+        }
         else
         {
             exit(0);
         }
+    }
+
     return 0;
 }
 
