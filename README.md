@@ -39,6 +39,15 @@ Find the ace, again a very fun filled engaging game where three cards are there 
 
 ![Screenshot (1932)](https://user-images.githubusercontent.com/34811605/124347063-f34d3980-dbff-11eb-8905-596660287053.png)
 
+### Detective Game
+This game
+doesn’t require any of your credits so you can easily try this for one more time if you failed to make the right guess. And what make this game unique and interesting than any other game is that it is purely based on evidences and clues, all you will need to solve this murder mystery is your brain.This game will narrate a murder mystery to the user and in the end the user need to guees the murderer, but first he need to give a very serious read to the whole story and search for the connections and evidences.
+
+![Screenshot (1933)](https://user-images.githubusercontent.com/34811605/124373260-7200b000-dcae-11eb-92c8-0a4fa63baeac.png)
+
+# Demo Video
+
+https://user-images.githubusercontent.com/34811605/124373275-83e25300-dcae-11eb-83fe-7648a47f958d.mp4
 
 # To Do
 - [ ] Add more games
