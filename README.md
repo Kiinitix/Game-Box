@@ -55,10 +55,3 @@ https://user-images.githubusercontent.com/34811605/124373275-83e25300-dcae-11eb-
 - [ ] More attractive home screen
 - [ ] More animations
 
-# Contributors
-- Abhinav
-- Apoorv Singh
-- Kabir Dhruw
-- Nishi Jain
-- Rajat Maini
-- Sonalika Bharadwaj
