@@ -45,6 +45,12 @@ doesn’t require any of your credits so you can easily try this for one more ti
 
 ![Screenshot (1933)](https://user-images.githubusercontent.com/34811605/124373260-7200b000-dcae-11eb-92c8-0a4fa63baeac.png)
 
+### Snake-Water-Gun
+This is a really fun game in which player has to choose one among snake, water or gun and computer will also choose among the same. The combination of the chosen element will decide the winner.
+
+![image](https://user-images.githubusercontent.com/79569723/126074896-e8f4c498-a836-4191-b7f0-5321f60fc848.png)
+
+
 # Demo Video
 
 https://user-images.githubusercontent.com/34811605/124373275-83e25300-dcae-11eb-83fe-7648a47f958d.mp4
