@@ -7,6 +7,10 @@
 #include <iomanip>
 #include <fstream>
 #include <conio.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
 
 using namespace std;
 
@@ -404,6 +408,83 @@ bool gameover(){                        //winning conditions
     return true;
     draw = true;
     return false;
+}
+
+int game(char *comp, char you[10])
+{
+    if (comp[0] == you[0])
+    {
+        return 0;
+    }
+
+    else if (comp[0] == 'w' && you[0] == 's')
+    {
+        return 1;
+    }
+    else if (comp[0] == 'g' && you[0] == 'w')
+    {
+        return 1;
+    }
+    else if (comp[0] == 's' && you[0] == 'g')
+    {
+
+        return 1;
+    }
+
+    else if (comp[0] == 'w' && you[0] == 'g')
+    {
+
+        return -1;
+    }
+    else if (comp[0] == 'g' && you[0] == 's')
+    {
+        return -1;
+    }
+    else
+    {
+        return -1;
+    }
+}
+
+void snake_water_gun()
+{
+    int num, result;
+    char *compp, you[10];
+    srand(time(0));
+    num = rand() % 100 + 1;
+
+    if (num < 33)
+    {
+        compp = "snake";
+    }
+    else if (num > 33 && num < 66)
+    {
+        compp = "water";
+    }
+    else
+    {
+        compp = "gun";
+    }
+
+    printf("choose amoung snake, water and gun\n");
+    fflush(stdin);
+    scanf("%s", &you);
+
+    result = game(compp, you);
+    printf("you choose %s and computer choose %s\n", you, compp);
+    if (result == 1)
+    {
+        printf("Congrats!, you have won\n");
+    }
+    else if (result == 0)
+    {
+        printf("the match is draw!\n");
+    }
+
+    else
+    {
+        printf("You lost, better luck next time!\n");
+    }
 }
 
 void tic_tac_toe(){                 //main page for tic tac toe board
@@ -808,7 +889,8 @@ int main (int argc, char **argv)
         cout << "\n4. Hang Man";
         cout << "\n5. Tic Tac Toe";
         cout << "\n6. Detective Game";
-        cout << "\n6. Quit";
+	cout << "\n7. Snake-Water-Gun";    
+        cout << "\n8. Quit";
         cout << "\n\nEnter your choice : ";
         cin >> a;
         if (a == 1)
@@ -862,6 +944,11 @@ int main (int argc, char **argv)
         else if (a == 6){
             system("cls");
             det();
+        }
+	    else if (a == 7)
+        {
+
+            snake_water_gun();
         }
         else
         {
@@ -1032,3 +1119,5 @@ void showLoadingScreen2()
     clearScreen(5);
     changeColour(WHITE);
 };
+
+
